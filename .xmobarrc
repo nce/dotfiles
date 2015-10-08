@@ -1,0 +1,18 @@
+Config { font  = "xfg:terminus:pixelsize=12"
+        , bgColor      = "#000000"
+        , fgColor      = "#FFFFFF"
+	    , position =  TopW L 100
+        , lowerOnStart = False
+        , commands = [ Run Network "eth0" ["-L","50","-H","1000","--low","#429942","--normal","#429942","--high","#cc4848", "-t", "<dev>: <rx><fc=#00FF00>/</fc><tx> "] 10
+                       , Run Cpu ["-L","3","-H","70","--low","#429942","--normal","#429942","--high","#cc4848"] 10
+                       , Run Weather "EDDN" ["-t","<station>: <tempC>C","-L","18","-H","28","--normal","#429942","--high","#cc4848","--low","lightblue"] 36000
+                       , Run Memory ["-t","Mem: <usedratio>%"] 10
+                       , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                       , Run Com "mocp" ["-Q %song"] "song" 10
+                       , Run Com "mocp" ["-Q %artist"] "artist" 10
+                       , Run Com "mocp" ["-Q %album"] "album" 10
+                       , Run StdinReader ]
+        , sepChar      = "%"
+        , alignSep     = "}{"
+	    , template = " %StdinReader% }{ </fc> %cpu% <fc=#0087AF>|</fc> %memory% <fc=#0087AF>|</fc> %eth0%<fc=#0087AF>|</fc> %EDDN% <fc=#0087AF>|</fc> %date%"
+        }
