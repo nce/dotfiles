@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Fri, 06.11.2015 - 17:47:39
+" Modified: Mon, 01.02.2016 - 11:39:02
 "
 " Vundle Install
 set nocompatible
@@ -22,6 +22,10 @@ Plugin 'tpope/vim-repeat'                   " Enable plugin repeating with .
 Plugin 'scrooloose/syntastic'               " Syntastic Syntax checking
 Plugin 'scrooloose/nerdtree'                " FS Browser
 Plugin 'puppetlabs/puppet-syntax-vim'       " Puppet Syntax Highlighting
+Plugin 'mattn/emmet-vim'                    " WEB emmet vim suite
+Plugin 'groenewege/vim-less'                " WEB less syntax hl
+Plugin 'skammer/vim-css-color'              " WEB show css/less/sass color
+Plugin 'jiangmiao/auto-pairs'               " Auto pair bracktes/quotes
 call vundle#end()                           " Required
 
 filetype plugin indent on  " Different behaviour based on filetype
@@ -34,17 +38,23 @@ set mouse=a
 set number                 " Show Absolute Line Numbers in Current Line
 set relativenumber         " Show Relative Line Numbers
 
-" -- Syntax --
+imap jk <ESC>
+
+" -- Visuals --
 syntax enable              " Syntax Highlighting
 set background=dark
-colorscheme base16-flat
+colorscheme solarized
 
 let mapleader=","          " Define  leader Key \ Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
+" -- Splits --
+set splitbelow
+set splitright
+
 " Show meta chars
 set list
-set listchars=eol:⌐,tab:⋅⋅,trail:~,extends:>,precedes:<
+set listchars=eol:⌐,tab:··,trail:~,extends:>,precedes:<
 
 " Trim trailing whitespace
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -70,6 +80,7 @@ set shiftwidth=0        " How many spaces should be INSERTED as one tab; If set 
 
 " -- File specific behaviour --
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype php setlocal noexpandtab tabstop=2 shiftwidth=2
 
 set formatoptions+=rco 		" t - autowrap to textwidth 
 							" c - autowrap comments to textwidth 
@@ -98,7 +109,8 @@ let g:timestamp_modelines = 8
 " Airline.vim
 let g:airline_powerline_fonts = 1 	" If iTerm2 uses patched Powerline fonts, allow them 
 "let g:airline_theme='powerlineish'
-let g:airline_theme='papercolor'
+"let g:airline_theme='papercolor'
+let g:airline_theme='base16'
 " Show a short mode in the Statusline 
 let g:airline_mode_map = {
 	\ 'n' : 'N' ,
@@ -110,30 +122,14 @@ let g:airline_section_y = airline#section#create(['%{v:servername}'])	" Remove t
 let g:airline_section_x = ''
 
 
+" -- Mappings --
+nmap <leader>ev :tabedit $MYVIMRC<CR>
+nmap <leader><space> :nohlsearch<CR>
 
 
-" Dirciple
-" https://www.reddit.com/r/vim/comments/3lywog/this_is_what_my_macvim_workflow_looks_like_what/cvcuw4o
-" Highlight the window, for use with dirciple
-function HighlightWindow()
-  "hi LineNr ctermfg=black ctermbg=2
-  "hi CursorLineNr ctermfg=black ctermbg=lightgreen
-  "redraw
-endfunction
-
-function UnHighlightWindow()
-  " The following line is another custom thing I built that changes my background between light and dark.
-  " I commented it out because it won't work for you
-
-  " call Setbackground()
-
-  " I think the following lines should work instead for reverting the gutter color, otherwise you may need
-  " to do it manually with similar syntax to what is in the HighlightWindow function
-  " You can change dark to light depending on your theme
-  "exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
-  "exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
-  "set background=dark
-  "hi LineNr ctermfg=yellow ctermbg=gray
-  "hi CursorLineNr ctermfg=blue ctermbg=gray
-  "redraw
-endfunction
+" -- Auto Command --
+" Automatically source the vimrc on save
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost $MYVIMRC %
+augroup END
