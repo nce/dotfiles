@@ -1,17 +1,21 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Do, 04.02.2016 - 15:09:47
+" Modified: Fri, 26.02.2016 - 17:17:03
 "
 " Vundle Install
 set nocompatible
 filetype off
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+if has ("win32")
+	set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+else
+	set rtp+=~/.vim/bundle/Vundle.vim
+endif
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'   " Solarized Colorscheme
 Plugin 'Timestamp.vim'                      " Timestamps in file headers
 Plugin 'openssl.vim'                        " Openssl onthefly de/encryption
-Plugin 'vim-airline/vim-airline'                  " Airline as Statusline
+Plugin 'vim-airline/vim-airline'            " Airline as Statusline
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'edkolev/tmuxline.vim'              " Tmux Statusline Generation with Airlinesupport
 Plugin 'chriskempson/base16-vim'            " Base16 Colorscheme
@@ -28,6 +32,9 @@ Plugin 'groenewege/vim-less'                " WEB less syntax hl
 Plugin 'skammer/vim-css-color'              " WEB show css/less/sass color
 Plugin 'jiangmiao/auto-pairs'               " Auto pair bracktes/quotes
 Plugin 'ctrlpvim/ctrlp.vim'                 " File, buffer tag browser in vim
+Plugin 'marcweber/vim-addon-mw-utils'       " snipmate dep
+Plugin 'tomtom/tlib_vim'                    " snipmate dep
+Plugin 'garbas/vim-snipmate'                " Snipmate with snipptes in .vim/snippets
 call vundle#end()                           " Required
 
 filetype plugin indent on  " Different behaviour based on filetype
@@ -44,7 +51,7 @@ imap jk <ESC>
 
 " -- Visuals --
 syntax enable              " Syntax Highlighting
-let base16colorspace=256
+"let base16colorspace=256
 set background=dark
 colorscheme base16-flat
 if has("gui_running")
@@ -90,6 +97,7 @@ set shiftwidth=0        " How many spaces should be INSERTED as one tab; If set 
 " -- File specific behaviour --
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 shiftwidth=4
+autocmd Filetype tex,latex setlocal noexpandtab tabstop=2 shiftwidth=2
 
 set formatoptions+=rco 		" t - autowrap to textwidth
 							" c - autowrap comments to textwidth
@@ -117,9 +125,8 @@ let g:timestamp_rep = '%a, %d.%m.%Y - %H:%M:%S'
 let g:timestamp_modelines = 8
 " Airline.vim
 let g:airline_powerline_fonts = 1 	" If iTerm2 uses patched Powerline fonts, allow them
-"let g:airline_theme='powerlineish'
-"let g:airline_theme='papercolor'
-let g:airline_theme='base16'
+let g:airline_theme='papercolor'
+"let g:airline_theme='base16'
 " Show a short mode in the Statusline
 let g:airline_mode_map = {
 	\ 'n' : 'N' ,
@@ -135,10 +142,3 @@ let g:airline_section_x = ''
 nmap <leader>ev :tabedit $MYVIMRC<CR>
 nmap <leader><space> :nohlsearch<CR>
 
-
-" -- Auto Command --
-" Automatically source the vimrc on save
-augroup autosourcing
-	autocmd!
-	autocmd BufWritePost $MYVIMRC %
-augroup END
