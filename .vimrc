@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Fri, 26.02.2016 - 17:17:03
+" Modified: Sat, 27.02.2016 - 16:32:27
 "
 " Vundle Install
 set nocompatible
@@ -17,7 +17,7 @@ Plugin 'Timestamp.vim'                      " Timestamps in file headers
 Plugin 'openssl.vim'                        " Openssl onthefly de/encryption
 Plugin 'vim-airline/vim-airline'            " Airline as Statusline
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'edkolev/tmuxline.vim'              " Tmux Statusline Generation with Airlinesupport
+Plugin 'edkolev/tmuxline.vim'              " Tmux Statusline Generation with Airlinesupport
 Plugin 'chriskempson/base16-vim'            " Base16 Colorscheme
 Plugin 'christoomey/vim-tmux-navigator'     " Seamlessly navigate through panes/splits with same vim binding
 Plugin 'tpope/vim-fugitive'                 " Git Support
@@ -30,7 +30,9 @@ Plugin 'puppetlabs/puppet-syntax-vim'       " Puppet Syntax Highlighting
 Plugin 'mattn/emmet-vim'                    " WEB emmet vim suite
 Plugin 'groenewege/vim-less'                " WEB less syntax hl
 Plugin 'skammer/vim-css-color'              " WEB show css/less/sass color
-Plugin 'jiangmiao/auto-pairs'               " Auto pair bracktes/quotes
+"Plugin 'jiangmiao/auto-pairs'               " breaks digraph <BS> insertion
+"Plugin 'townk/vim-autoclose'                " same problem
+"Plugin 'Raimondi/delimitMate'               " same problem
 Plugin 'ctrlpvim/ctrlp.vim'                 " File, buffer tag browser in vim
 Plugin 'marcweber/vim-addon-mw-utils'       " snipmate dep
 Plugin 'tomtom/tlib_vim'                    " snipmate dep
@@ -38,6 +40,9 @@ Plugin 'garbas/vim-snipmate'                " Snipmate with snipptes in .vim/sni
 call vundle#end()                           " Required
 
 filetype plugin indent on  " Different behaviour based on filetype
+
+let g:AutoPairsMapBS=0
+
 
 set noshowmode             " Don't display Insert/Visual Mode on Bottom; Done with airline
 set laststatus=2           " Display a status Line
@@ -97,7 +102,7 @@ set shiftwidth=0        " How many spaces should be INSERTED as one tab; If set 
 " -- File specific behaviour --
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 shiftwidth=4
-autocmd Filetype tex,latex setlocal noexpandtab tabstop=2 shiftwidth=2
+"autocmd Filetype tex setlocal noexpandtab tabstop=2 shiftwidth=2
 
 set formatoptions+=rco 		" t - autowrap to textwidth
 							" c - autowrap comments to textwidth
@@ -134,8 +139,8 @@ let g:airline_mode_map = {
 	\ 'v' : 'V' ,
 	\ 'R' : 'R' ,
 	\ }
-let g:airline_section_y = airline#section#create(['%{v:servername}'])	" Remove tagbar, filetype, virtualenv, add servername
-let g:airline_section_x = ''
+"let g:airline_section_y = airline#section#create(['%{v:servername}'])	" Remove tagbar, filetype, virtualenv, add servername
+"let g:airline_section_x = ''
 
 
 " -- Mappings --
