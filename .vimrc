@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Sat, 27.02.2016 - 16:32:27
+" Modified: Mon, 29.02.2016 - 16:28:59
 "
 " Vundle Install
 set nocompatible
@@ -37,6 +37,7 @@ Plugin 'ctrlpvim/ctrlp.vim'                 " File, buffer tag browser in vim
 Plugin 'marcweber/vim-addon-mw-utils'       " snipmate dep
 Plugin 'tomtom/tlib_vim'                    " snipmate dep
 Plugin 'garbas/vim-snipmate'                " Snipmate with snipptes in .vim/snippets
+Plugin 'jamessan/vim-gnupg'                 " GnuPG
 call vundle#end()                           " Required
 
 filetype plugin indent on  " Different behaviour based on filetype
@@ -141,7 +142,34 @@ let g:airline_mode_map = {
 	\ }
 "let g:airline_section_y = airline#section#create(['%{v:servername}'])	" Remove tagbar, filetype, virtualenv, add servername
 "let g:airline_section_x = ''
+"
+" GnuPG
+let g:GPGPreferArmor=1                    " Tell the GnuPG plugin to armor new files
+let g:GPGPreferSign=0                     " Tell the GnuPG plugin to sign new files
+let g:GPGDefaultRecipients=["Encrypt"]
+augroup GnuPGExtra
+" Set extra file options.
+    autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) call SetGPGOptions()
+" Automatically close unmodified files after inactivity.
+    autocmd CursorHold *.\(gpg\|asc\|pgp\) quit
+augroup END
 
+function SetGPGOptions()
+" Set updatetime to 1 minute.
+    set updatetime=60000
+" Fold at markers.
+    set foldmethod=marker
+" Automatically close all folds.
+    set foldclose=all
+" Only open folds with insert commands.
+    set foldopen=insert
+endfunction
+
+" Yank WORD to system clipboard in normal mode
+nmap <leader>y "+yE
+
+" Yank selection to system clipboard in visual mode
+vmap <leader>y "+y
 
 " -- Mappings --
 nmap <leader>ev :tabedit $MYVIMRC<CR>
