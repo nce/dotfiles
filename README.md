@@ -1,3 +1,5 @@
+# Dotfiles
+This is a collection of my non-private, important dotfiles
 # Vim
 ## Mac
 ### Blue Line Numbers
