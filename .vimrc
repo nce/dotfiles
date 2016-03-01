@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Mon, 29.02.2016 - 16:28:59
+" Modified: Tue, 01.03.2016 - 22:00:46
 "
 " Vundle Install
 set nocompatible
@@ -29,7 +29,10 @@ Plugin 'scrooloose/nerdtree'                " FS Browser
 Plugin 'puppetlabs/puppet-syntax-vim'       " Puppet Syntax Highlighting
 Plugin 'mattn/emmet-vim'                    " WEB emmet vim suite
 Plugin 'groenewege/vim-less'                " WEB less syntax hl
-Plugin 'skammer/vim-css-color'              " WEB show css/less/sass color
+
+" increases *.php load time to an unbearable level
+"Plugin 'skammer/vim-css-color'              " WEB show css/less/sass color
+
 "Plugin 'jiangmiao/auto-pairs'               " breaks digraph <BS> insertion
 "Plugin 'townk/vim-autoclose'                " same problem
 "Plugin 'Raimondi/delimitMate'               " same problem
