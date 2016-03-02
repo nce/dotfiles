@@ -1,0 +1,198 @@
+%  This is my personal seminar paper template
+%  @author:     Ulli Goschler <ulligoschler@gmail.com>
+%  @created:    Wed, 16.07.2014 - 11:19:32
+%  @modified: Wed, 02.03.2016 - 18:10:14
+%  Build and tested for LuaLaTeX
+%  Include this file:
+%   \input{PATH/TO/HEADER}
+\documentclass[
+  a4paper
+, german
+, fontsize=12pt
+, BCOR=1cm                      % binding correction of Xcm on the left side
+]{scrartcl}
+
+% -- [ Custom macros
+%  these need to be uncommented or overwritten elsewhere
+% \def \mysubtitle{<SUBTITLE>}
+% \def \mytitle{<TITLE>}
+% \def \mypublishers{
+%     NAME\\
+%     ADDRESS\\
+%     \href{mailto:mail@example.org}{mail@example.org}\\
+%     \vspace{-0.8em}
+%     <ADDITIONS>
+% }
+% \def \myseminar {
+%     <SEMINARDETAILS>
+% }
+
+% -- [ Main Language
+%  manages culturally determined typographical rules and
+%  hyphenation patterns - http://goo.gl/vgZSXf
+%\usepackage[ngerman]{babel}    % use with pdflatex (deprecated)
+\usepackage{polyglossia}        % the following is recommended with lualatex:
+\setdefaultlanguage[
+  spelling=new
+, latesthyphen=true
+, babelshorthands=true
+]{german}
+%\setmainlanguage{german}
+
+% -- [ Fonts
+%  with pdflatex select the font with \usepackage
+% \usepackage{fourier}          % adope utopia font
+% \usepackage{mathpazo}         % palantino font
+
+% Select font XeLaTeX style (with fontspec)
+\usepackage{fontspec}           %  unified interface for loading fonts
+\setmainfont[
+  Numbers=OldStyle              % use old-styled numbers
+]{TeX Gyre Pagella}             % Mod of URW Palladio, which is a mod of Adobe Palatino
+
+%\usepackage{blindtext}         % Blintext with \blindtext
+
+% -- [ Typography
+% improve general apperance
+\usepackage[                    % http://www.khirevich.com/latex/microtype/
+  activate={true,nocompatibility}
+, protrusion=true
+, expansion=true
+, final
+%, tracking=true                % messes to much with SC
+]{microtype}
+
+\usepackage[
+  flushmargin
+, hang]{footmisc}               % proper footnote spacing
+
+\usepackage[                    % proper handling of clubs and widows
+  defaultlines=4
+, all]{nowidow}
+
+% Papers usually need a "line spacing" of 1.5 (equiv. Microsoft Word)
+% http://texwelt.de/wissen/fragen/3/wie-stelle-ich-einen-zeilenabstand-von-15-ein
+\usepackage{setspace}
+\makeatletter
+\newcommand{\MSonehalfspacing}{
+  \setstretch{1.44}             % default
+  \ifcase \@ptsize \relax       % 10pt
+    \setstretch {1.448}
+  \or                           % 11pt
+    \setstretch {1.399}
+  \or                           % 12pt
+    \setstretch {1.433}
+  \fi
+}
+\newcommand{\MSdoublespacing}{
+  \setstretch {1.92}            % default
+  \ifcase \@ptsize \relax       % 10pt
+    \setstretch {1.936}
+  \or                           % 11pt
+    \setstretch {1.866}
+  \or                           % 12pt
+    \setstretch {1.902}
+  \fi
+}
+\makeatother
+
+% -- [ Images
+\usepackage{
+  graphicx                      % include images
+, pdfpages                      % include pdf (pages)
+, wrapfig                       % allow wrapping of images
+, caption                       % captions
+}
+\captionsetup{belowskip=12pt,aboveskip=4pt}
+
+% -- [ Tables
+\usepackage{
+  longtable
+, array
+, ragged2e
+, booktabs
+, multirow
+, tabularx
+}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% -- [ BibLaTeX
+\usepackage[
+  style=authortitle-dw
+, idemtracker=false
+, style=verbose-trad2
+, natbib=false
+, isbn=false
+, doi=false
+, clearlang=true
+, backend=biber
+]{biblatex}                     % use biblatex
+\addbibresource[]{biblatex/main.bib}
+\defbibheading{bibliography}{   % german name of bibliography
+    \section*{Literaturverzeichnis}
+}
+\AtEveryBibitem{
+  \clearname{language}
+}
+\DefineBibliographyStrings{ngerman}{
+  shorthands = {Abkürzungsverzeichnis}
+, urlseen =    {zuletzt abgerufen am}
+, url =        {in},
+}
+
+% -- [ Misc
+\usepackage{csquotes}           % language aware quotes with \enquote{}
+\usepackage[
+  printonlyused
+, withpage
+]{acronym}                      % proper acronym usage
+\usepackage{textcomp,url}       % proper hyperref usage
+
+\usepackage[
+  linktoc=all
+, hidelinks]{hyperref}          % hyperref always as last package
+
+% -- [ Title page
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}     % add horizontal rule
+\renewcommand*{\titlepagestyle}{empty}              % no page numbering on first page
+\titlehead{
+    \begin{minipage}{0.5\textwidth}
+    \includegraphics[width=0.8\textwidth]{img/logo} % corp/inst logo
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushright}
+            \myseminar
+        \end{flushright}
+  \end{minipage}
+  \vspace{8em}
+}
+\title{
+    \normalfont \normalsize
+    \textsc{\mysubtitle
+    } \\ [25pt]
+   \horrule{0.5pt} \\[0.4cm]
+   \huge \mytitle \\
+   \horrule{2pt}   \\[0.5cm]
+}
+\publishers{
+    \vfill
+    \raggedright
+    {\normalsize
+        \mypublishers
+    }
+}
+
+% -- [ Document
+\begin{document}
+\setstretch{1.241}
+
+    \maketitle
+
+\clearpage
+
+    \setcounter{page}{1}
+    %\thispagestyle{empty}      % Disable page numbering on TOC
+
+    \tableofcontents
+
+\clearpage
