@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Tue, 01.03.2016 - 22:00:46
+" Modified: Wed, 02.03.2016 - 22:05:48
 "
 " Vundle Install
 set nocompatible
