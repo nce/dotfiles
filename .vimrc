@@ -1,14 +1,14 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Wed, 02.03.2016 - 22:05:48
+" Modified: Thu, 30.06.2016 - 16:33:45
 "
 " Vundle Install
 set nocompatible
 filetype off
 if has ("win32")
-	set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim
 else
-	set rtp+=~/.vim/bundle/Vundle.vim
+    set rtp+=~/.vim/bundle/Vundle.vim
 endif
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -64,7 +64,7 @@ syntax enable              " Syntax Highlighting
 set background=dark
 colorscheme base16-flat
 if has("gui_running")
-	set guifont=Inconsolata\ for\ Powerline:h15
+    set guifont=Inconsolata\ for\ Powerline:h15
 endif
 
 
@@ -95,6 +95,8 @@ set smartcase           " But only when search is all lower case
 set incsearch           " Incremental searching
 set hlsearch            " Highlight matches
 
+" -- Wording --
+au Filetype puppet set listkeys-=:     " Make : a word delimiter in puppet files
 
 " -- Tabs --
 set noexpandtab         " Don't insert Spaces for tabs
@@ -108,15 +110,15 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 autocmd Filetype php setlocal expandtab tabstop=4 shiftwidth=4
 "autocmd Filetype tex setlocal noexpandtab tabstop=2 shiftwidth=2
 
-set formatoptions+=rco 		" t - autowrap to textwidth
-							" c - autowrap comments to textwidth
-							" r - autoinsert comment leader with <Enter>
-							" q - allow formatting of comments with :gq
+set formatoptions+=rco  " t - autowrap to textwidth
+                        " c - autowrap comments to textwidth
+                        " r - autoinsert comment leader with <Enter>
+                        " q - allow formatting of comments with :gq
 
 highlight OverLength ctermbg=red ctermfg=white ctermbg=darkred
 match OverLength /\%81v.\+/
 
-inoremap <F6> # <C-R>=getcwd()<CR>i/<C-R>%<CR>Author:	Ulli Goschler <ulligoschler@gmail.com><CR>Created:	<ESC>"=strftime("%a, %d.%m.%Y - %H:%M:%S ")<CR>p<ESC>oModified:	Tue, 01.01.1970 - 13:37:00<CR>
+inoremap <F6> # <C-R>=getcwd()<CR>i/<C-R>%<CR>Author:   Ulli Goschler <ulligoschler@gmail.com><CR>Created:  <ESC>"=strftime("%a, %d.%m.%Y - %H:%M:%S ")<CR>p<ESC>oModified: Tue, 01.01.1970 - 13:37:00<CR>
 
 
 " -- Text writing --
@@ -133,17 +135,17 @@ let timestamp_regexp = '\v\C%(<(Last )?%([cC]hanged?|[Mm]odified):\s+)@<=.*$'
 let g:timestamp_rep = '%a, %d.%m.%Y - %H:%M:%S'
 let g:timestamp_modelines = 8
 " Airline.vim
-let g:airline_powerline_fonts = 1 	" If iTerm2 uses patched Powerline fonts, allow them
+let g:airline_powerline_fonts = 1   " If iTerm2 uses patched Powerline fonts, allow them
 let g:airline_theme='papercolor'
 "let g:airline_theme='base16'
 " Show a short mode in the Statusline
 let g:airline_mode_map = {
-	\ 'n' : 'N' ,
-	\ 'i' : 'I' ,
-	\ 'v' : 'V' ,
-	\ 'R' : 'R' ,
-	\ }
-"let g:airline_section_y = airline#section#create(['%{v:servername}'])	" Remove tagbar, filetype, virtualenv, add servername
+    \ 'n' : 'N' ,
+    \ 'i' : 'I' ,
+    \ 'v' : 'V' ,
+    \ 'R' : 'R' ,
+    \ }
+"let g:airline_section_y = airline#section#create(['%{v:servername}'])  " Remove tagbar, filetype, virtualenv, add servername
 "let g:airline_section_x = ''
 "
 " GnuPG
