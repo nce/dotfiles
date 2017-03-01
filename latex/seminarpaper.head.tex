@@ -1,7 +1,7 @@
 %  This is my personal seminar paper template
-%  @author:     Ulli Goschler <ulligoschler@gmail.com>
-%  @created:    Wed, 16.07.2014 - 11:19:32
-%  @modified: Wed, 02.03.2016 - 18:10:14
+%  @author:   Ulli Goschler <ulligoschler@gmail.com>
+%  @created:  Wed, 16.07.2014 - 11:19:32
+%  @modified: Mon, 14.03.2016 - 01:11:47
 %  Build and tested for LuaLaTeX
 %  Include this file:
 %   \input{PATH/TO/HEADER}
@@ -9,7 +9,7 @@
   a4paper
 , german
 , fontsize=12pt
-, BCOR=1cm                      % binding correction of Xcm on the left side
+%, BCOR=1cm                      % binding correction of Xcm on the left side
 ]{scrartcl}
 
 % -- [ Custom macros
@@ -78,7 +78,7 @@
   \setstretch{1.44}             % default
   \ifcase \@ptsize \relax       % 10pt
     \setstretch {1.448}
-  \or                           % 11pt
+  \or                           % 11
     \setstretch {1.399}
   \or                           % 12pt
     \setstretch {1.433}
@@ -97,13 +97,21 @@
 \makeatother
 
 % -- [ Images
+\usepackage[dvipsnames, svgnames]{xcolor} % add colornames, bevore pdfpages
 \usepackage{
   graphicx                      % include images
 , pdfpages                      % include pdf (pages)
 , wrapfig                       % allow wrapping of images
 , caption                       % captions
 }
-\captionsetup{belowskip=12pt,aboveskip=4pt}
+\captionsetup{font=small,belowskip=12pt,aboveskip=4pt}
+
+% -- [ Tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning, backgrounds, decorations.text, matrix}
+\pgfdeclarelayer{foreground}    % define layers
+\pgfdeclarelayer{background}    % define layers
+\pgfsetlayers{background,main,foreground} % stack order
 
 % -- [ Tables
 \usepackage{
@@ -118,9 +126,11 @@
 
 % -- [ BibLaTeX
 \usepackage[
-  style=authortitle-dw
+  style=authoryear-icomp
+, ibidpage=true                 % icomp option to omit repeating page
+%, citestyle=authoryear
 , idemtracker=false
-, style=verbose-trad2
+%, style=verbose-trad2
 , natbib=false
 , isbn=false
 , doi=false
@@ -148,6 +158,8 @@
 ]{acronym}                      % proper acronym usage
 \usepackage{textcomp,url}       % proper hyperref usage
 
+\usepackage{\mypackages}        % allow individual packages
+
 \usepackage[
   linktoc=all
 , hidelinks]{hyperref}          % hyperref always as last package
@@ -171,8 +183,11 @@
     \textsc{\mysubtitle
     } \\ [25pt]
    \horrule{0.5pt} \\[0.4cm]
-   \huge \mytitle \\
+   \large \mytitle \\
+   % \huge \mytitle \\
    \horrule{2pt}   \\[0.5cm]
+	\large13. März 2016
+\date{}
 }
 \publishers{
     \vfill
