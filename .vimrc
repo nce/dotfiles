@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Thu, 30.06.2016 - 16:33:45
+" Modified: Mon, 13.03.2017 - 09:31:45
 "
 " Vundle Install
 set nocompatible
@@ -26,9 +26,11 @@ Plugin 'tpope/vim-commentary'               " Edit comments of things
 Plugin 'tpope/vim-repeat'                   " Enable plugin repeating with .
 Plugin 'scrooloose/syntastic'               " Syntastic Syntax checking
 Plugin 'scrooloose/nerdtree'                " FS Browser
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'puppetlabs/puppet-syntax-vim'       " Puppet Syntax Highlighting
 Plugin 'mattn/emmet-vim'                    " WEB emmet vim suite
 Plugin 'groenewege/vim-less'                " WEB less syntax hl
+Plugin 'mileszs/ack.vim'                    " Grepping # brew install ack
 
 " increases *.php load time to an unbearable level
 "Plugin 'skammer/vim-css-color'              " WEB show css/less/sass color
@@ -60,8 +62,11 @@ imap jk <ESC>
 
 " -- Visuals --
 syntax enable              " Syntax Highlighting
-"let base16colorspace=256
 set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 colorscheme base16-flat
 if has("gui_running")
     set guifont=Inconsolata\ for\ Powerline:h15
@@ -99,10 +104,10 @@ set hlsearch            " Highlight matches
 au Filetype puppet set listkeys-=:     " Make : a word delimiter in puppet files
 
 " -- Tabs --
-set noexpandtab         " Don't insert Spaces for tabs
+set expandtab           " Do insert Spaces for tabs
 "set autoindent         " Copy indent from current line to new one
 set smartindent         " Ident newlines
-set tabstop=4           " How many spaces should be DISPLAYED as one tab
+set tabstop=2           " How many spaces should be DISPLAYED as one tab
 set shiftwidth=0        " How many spaces should be INSERTED as one tab; If set to '0', it uses tabstop value as default
 
 " -- File specific behaviour --
@@ -114,6 +119,10 @@ set formatoptions+=rco  " t - autowrap to textwidth
                         " c - autowrap comments to textwidth
                         " r - autoinsert comment leader with <Enter>
                         " q - allow formatting of comments with :gq
+
+" -- Syntax Highlighting --
+" Ansible
+let g:ansible_name_highlight = 'd'
 
 highlight OverLength ctermbg=red ctermfg=white ctermbg=darkred
 match OverLength /\%81v.\+/
@@ -130,6 +139,20 @@ let g:tex_comment_nospell=1                     " but not on comments
 " -- Plugins --
 " Nerdtree
 map <C-b> :NERDTreeToggle<CR>
+map <Leader>f :NERDTreeFind<CR>
+
+" open nerdtree if no file was specified for editing
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('md', 'Cyan', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'Yellow', 'none', 'Yellow', '#151515')
+
 " Timestamp.vim
 let timestamp_regexp = '\v\C%(<(Last )?%([cC]hanged?|[Mm]odified):\s+)@<=.*$'
 let g:timestamp_rep = '%a, %d.%m.%Y - %H:%M:%S'
