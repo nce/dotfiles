@@ -1,6 +1,6 @@
 " Author:   Ulli Goschler <ulligoschler@gmail.com>
 " Created:  Sun, 26.04.2009 - 19:52:23
-" Modified: Mon, 13.03.2017 - 09:31:45
+" Modified: Mon, 13.03.2017 - 17:00:06
 "
 " Vundle Install
 set nocompatible
@@ -26,7 +26,8 @@ Plugin 'tpope/vim-commentary'               " Edit comments of things
 Plugin 'tpope/vim-repeat'                   " Enable plugin repeating with .
 Plugin 'scrooloose/syntastic'               " Syntastic Syntax checking
 Plugin 'scrooloose/nerdtree'                " FS Browser
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Xuyuanp/nerdtree-git-plugin'        " git symbols in nerdtree tree
+Plugin 'airblade/vim-gitgutter'             " infile git diff signs
 Plugin 'puppetlabs/puppet-syntax-vim'       " Puppet Syntax Highlighting
 Plugin 'mattn/emmet-vim'                    " WEB emmet vim suite
 Plugin 'groenewege/vim-less'                " WEB less syntax hl
@@ -128,6 +129,7 @@ highlight OverLength ctermbg=red ctermfg=white ctermbg=darkred
 match OverLength /\%81v.\+/
 
 inoremap <F6> # <C-R>=getcwd()<CR>i/<C-R>%<CR>Author:   Ulli Goschler <ulligoschler@gmail.com><CR>Created:  <ESC>"=strftime("%a, %d.%m.%Y - %H:%M:%S ")<CR>p<ESC>oModified: Tue, 01.01.1970 - 13:37:00<CR>
+inoremap <F7> --ugo[<ESC>"=strftime("%m.%Y")<CR>p<ESC>a]
 
 
 " -- Text writing --
@@ -144,6 +146,9 @@ map <Leader>f :NERDTreeFind<CR>
 " open nerdtree if no file was specified for editing
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" show hidden files
+let NERDTreeShowHidden=1
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
   exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
