@@ -1,3 +1,32 @@
+# Client Installation
+## Apple M1
+
+```
+# Docker/k8s
+Minikube und Docker Desktop muss aktuell fuer arm wohl von Hand installiert werden
+# RDP Stuff
+brew install xquartz
+brew install freerdp
+
+# Mac Setup
+brew tap homebrew/cask-fonts
+brew install --cask font-inconsolata-go-nerd-font
+brew install tmux nvim ripgrep fzf bat fd
+brew install --cask emacs
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+brew install --cask font-source-code-pro
+brew install skype-for-business macpass mactex webex gnuplot qrencode pandoc
+brew install terraform ansible jq pwgen
+
+brew tap homebrew/cask-drivers
+brew install garmin-express
+
+/usr/local/opt/fzf/install # yes yes yes yes
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+
 # Dotfiles
 This is a collection of my non-private, important dotfiles. As well as some
 LaTeX templates
