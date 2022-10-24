@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH:/Library/TeX/texbin
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH:/Library/TeX/texbin:${KREW_ROOT:-$HOME/.krew}/bin:$HOME/go/bin
 
+INSTALLATION_PATH=$(brew --prefix switch) && source $INSTALLATION_PATH/switch.sh
 
 #alias oca="oc --config ~/.kube/config-aws"
 #alias ocr="oc --config ~/.kube/config-rocke"
@@ -72,6 +73,8 @@ plugins=(
   docker
   fzf
   fzf-tab
+  kubectl
+  kube-ps1
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,4 +113,21 @@ export FZF_ALT_C_COMMAND='fd --type d --follow --exclude .git --exclude Library 
  alias vim="nvim"
  alias vi="nvim"
  alias v="nvim"
+
+ alias ap="ansible-playbook"
+
+function get_namespace_short() {
+    echo "$1" | cut -c 1-4
+}
+KUBE_PS1_NAMESPACE_FUNCTION=get_namespace_short
+KUBE_PS1_NS_ENABLE=true
+KUBE_PS1_SEPARATOR=""
+KUBE_PS1_PREFIX=""
+KUBE_PS1_SUFFIX=""
+#PROMPT=$PROMPT'$(kube_ps1) » '
+
+#source ~/qmk_firmware/util/qmk_tab_complete.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
