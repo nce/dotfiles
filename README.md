@@ -4,9 +4,6 @@
 ```
 # Docker/k8s
 Minikube und Docker Desktop muss aktuell fuer arm wohl von Hand installiert werden
-# RDP Stuff
-brew install xquartz
-brew install freerdp
 
 # Mac Setup
 brew tap homebrew/cask-fonts
@@ -15,8 +12,10 @@ brew install tmux nvim ripgrep fzf bat fd
 brew install --cask emacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew install --cask font-source-code-pro
-brew install skype-for-business macpass mactex webex gnuplot qrencode pandoc
-brew install terraform ansible jq pwgen
+brew install macpass mactex webex gnuplot qrencode pandoc gopls
+brew install helm norwoodj/tap/helm-docs
+brew install terraform ansible jq pwgen tflint pre-commit postman
+brew install hashicorp/tap/terraform-ls
 
 brew tap homebrew/cask-drivers
 brew install garmin-express
