@@ -6,13 +6,14 @@
 Minikube und Docker Desktop muss aktuell fuer arm wohl von Hand installiert werden
 
 # Mac Setup
+brew install --cask alacritty
 brew tap homebrew/cask-fonts
 brew install --cask font-inconsolata-go-nerd-font
 brew install tmux nvim ripgrep fzf bat fd
-brew install --cask emacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+#brew install --cask emacs
+#git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew install --cask font-source-code-pro
-brew install macpass mactex webex gnuplot qrencode pandoc gopls
+brew install macpass mactex gnuplot qrencode pandoc gopls
 brew install helm norwoodj/tap/helm-docs
 brew install terraform ansible jq pwgen tflint pre-commit postman
 brew install hashicorp/tap/terraform-ls
