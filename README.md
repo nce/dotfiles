@@ -1,31 +1,42 @@
 # Client Installation
-## Apple M1
 
+Backup:
+* `.ssh`
+* `.gnupg`
+
+## Apple M1
 ```
-# Docker/k8s
-Minikube und Docker Desktop muss aktuell fuer arm wohl von Hand installiert werden
+# Shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Mac Setup
 brew install --cask alacritty
 brew tap homebrew/cask-fonts
 brew install --cask font-inconsolata-go-nerd-font
 brew install tmux nvim ripgrep fzf bat fd
+brew install danielfoehrkn/switch/switch
 #brew install --cask emacs
 #git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-brew install --cask font-source-code-pro
+#brew install --cask font-source-code-pro
+brew install --cask microsoft-teams slack discord
 brew install macpass mactex gnuplot qrencode pandoc gopls
 brew install helm norwoodj/tap/helm-docs
-brew install terraform ansible jq pwgen tflint pre-commit postman
+brew install terraform ansible jq pwgen tflint pre-commit oci-cli awscli kubectl kustomize krew pinentry-mac helm gh k9s
 brew install hashicorp/tap/terraform-ls
+brew install --cask obsidian
 
 brew tap homebrew/cask-drivers
-brew install garmin-express
+brew install garmin-express elgato-control-center elgato-stream-deck
 
 /usr/local/opt/fzf/install # yes yes yes yes
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+k krew install oidc-login
 ```
 
+If the pinentry on mac won't work out of the box (no graphical method to allow
+saving passphrase to keychain); We need to kill gpg-agent.
 
 # Dotfiles
 This is a collection of my non-private, important dotfiles. As well as some
