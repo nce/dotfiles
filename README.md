@@ -67,3 +67,5 @@ Für iterm2-base16-flat muss dies deaktiviert sein.
 ### Digraph AutoClose Plugins
 Die meisten autoclose Plugins überschreiben die `digraph`-<BS> Features, sodass
 man keine Sonderzeichen mehr über diesen Weg einfügen kann.
+
+
