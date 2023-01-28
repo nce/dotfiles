@@ -3,8 +3,14 @@
 Backup:
 * `.ssh`
 * `.gnupg`
+* `.gitconfig`
 
 1. install Homebrew
+
+2. install rosetta
+```bash
+sudo softwareupdate --install-rosetta
+```
 
 2. install prezto
 
@@ -22,31 +28,26 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 brew install --cask alacritty
 brew tap homebrew/cask-fonts
 brew install --cask font-inconsolata-go-nerd-font
-brew install tmux nvim ripgrep fzf bat fd git
+brew install tmux nvim ripgrep fzf bat fd git npm
 ```
 
 6. apps
 ```bash
-brew install obsidian slack discord macpass mactex gnuplot qrencode pandoc gopls
-brew install --cask garmin-express elgato-control-center elgato-stream-deck
+brew tap homebrew/cask-drivers
+brew install obsidian slack discord macpass mactex gnuplot qrencode pandoc gopls brave-browser
+brew install --cask garmin-express elgato-control-center elgato-stream-deck elgato-camera-hub
 
 ```
 
 7. dev stuff
 ```
-brew install terraform ansible jq pwgen tflint pre-commit oci-cli awscli kubectl kustomize krew pinentry-mac helm gh k9s
-brew tap homebrew/cask-drivers
+brew install terraform ansible jq pwgen pre-commit oci-cli awscli kubectl kustomize krew pinentry-mac helm gh k9s
 ```
 
 ## Apple M1
 ```
-# Shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Mac Setup
 #brew install danielfoehrkn/switch/switch
-
-brew tap homebrew/cask-drivers
 
 /usr/local/opt/fzf/install # yes yes yes yes
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
@@ -60,31 +61,4 @@ saving passphrase to keychain); We need to kill gpg-agent.
 # Dotfiles
 This is a collection of my non-private, important dotfiles. As well as some
 LaTeX templates
-# iterm2
-Iterm2 sollte die gepatchte Inconsolata Powerline Schriftart verwenden, die es
-irgendwo auf github direkt zum Download gibt.
-
-Wird das solarized Colorscheme in zb. vim verwendet, sollte das Terminal
-dies entsprechend auch verwenden. Dabei kontrollieren, dass nicht das
-falsche (?) base-16 256-Farben Profil verwendet wird.
-
-# Base16
-Um das Base16 Colorscheme überall zu verwenden müssen folgende Repos, gemäß
-Anleitung ausgecheckt werden:
-* [base16-shell](https://github.com/chriskempson/base16-shell)
-* [base16-iterm2 base16-flat.dark.itemcolors](https://github.com/chriskempson/base16-iterm2)
-
-# Vim
-## Mac
-### Blue Line Numbers
-Ist die Zeilennummierung fälschlicherweise blau, dann ist keine
-[base16-shell](https://github.com/chriskempson/base16-vim#blue-line-numbers)
-verfügbar aber `let base16colorspace=256` trotzdem aktiviert.
-
-Für iterm2-base16-flat muss dies deaktiviert sein.
-
-### Digraph AutoClose Plugins
-Die meisten autoclose Plugins überschreiben die `digraph`-<BS> Features, sodass
-man keine Sonderzeichen mehr über diesen Weg einfügen kann.
-
 
