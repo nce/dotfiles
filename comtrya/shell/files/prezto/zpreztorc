@@ -41,6 +41,7 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'utility' \
   'completion' \
+  'fzf-tab' \
   'syntax-highlighting' \
   'autosuggestions' \
   'history-substring-search' \
@@ -60,6 +61,17 @@ zstyle ':prezto:load' pmodule \
 # Set the entries to ignore in static '/etc/hosts' for host completion.
 # zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
 #   '0.0.0.0' '127.0.0.1'
+#
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 
 #
 # Editor

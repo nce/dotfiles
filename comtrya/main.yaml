@@ -18,6 +18,7 @@ actions:
     - fd
     - git
     - node
+    - exa
 
 # apps
 - action: package.install
@@ -52,6 +53,7 @@ actions:
     - helm
     - gh
     - k9s
+    - danielfoehrkn/switch/switch
 
 
 # Markdown Preview in nvim

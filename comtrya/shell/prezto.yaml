@@ -45,5 +45,6 @@ actions:
   from: prezto/zpreztorc
   to: "{{ user.home_dir }}/.config/zsh/.zprezto/runcoms/zpreztorc"
 
-
-
+- action: git.clone
+  repository: https://github.com/Aloxaf/fzf-tab
+  directory: "{{ user.home_dir }}/.config/zsh/.zprezto/contrib/fzf-tab"

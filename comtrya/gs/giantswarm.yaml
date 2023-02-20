@@ -8,3 +8,9 @@ actions:
       cd "{{ user.home_dir }}/vcs/github/giantswarm/opsctl"
       make &&
       make install
+
+- action: command.run
+  command: sh
+  args: 
+    - -c
+    - kubectl krew install gs

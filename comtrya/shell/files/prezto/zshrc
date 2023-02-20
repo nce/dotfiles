@@ -28,6 +28,9 @@ alias vi="nvim"
 export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin"
 eval "$(zoxide init zsh)"
 
+# kube switch
+INSTALLATION_PATH=$(brew --prefix switch) && source $INSTALLATION_PATH/switch.sh
+
 source "$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
 KUBE_PS1_SYMBOL_ENABLE=false
 KUBE_PS1_NS_ENABLE=false
