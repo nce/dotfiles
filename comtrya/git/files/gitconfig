@@ -1,0 +1,32 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = "Ulli Goschler"
+  email = git@nce.wtf
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILpwuTOGxnbQue9I5S4eR5/tdXStGtMvGSIs/AOaC7+b
+[diff "sopsdiffer"]
+	textconv = sops -d
+[core]
+#	hooksPath = ~/.githooks using pre-commit instead
+	autocrlf = input
+	excludesfile = /Users/ull/.gitignore
+	editor = vim
+	ignorecase = false
+[commit]
+	gpgsign = true
+[branch]
+	autosetuprebase = always
+[alias]
+  squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
+[pager]
+	branch = false
+	tag = false
+[push]
+	default = current
+	autoSetupRemote = true
+[gpg]
+	format = ssh
+#[includeIf "gitdir:~/vcs/gitlab/vrp/"]
+#  path = ~/vcs/gitlab/vrp/.gitconfig_include
+[init]
+	defaultBranch = main

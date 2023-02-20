@@ -1,0 +1,9 @@
+actions:
+- action: git.clone
+  repository: https://github.com/tmux-plugins/tpm
+  directory: "{{ user.home_dir}}/.tmux/plugins/tpm"
+
+- action: file.copy
+  from: tmux.conf
+  to: "{{ user.home_dir }}/.tmux.conf"
+

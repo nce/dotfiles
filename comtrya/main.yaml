@@ -1,0 +1,64 @@
+actions:
+
+# fonts
+- action: package.install
+  provider: homebrew
+  repository: homebrew/cask-fonts
+  name: font-inconsolata-go-nerd-font
+
+# tools
+- action: package.install
+  provider: homebrew
+  list:
+    - tmux
+    - neovim
+    - ripgrep
+    - fzf
+    - bat
+    - fd
+    - git
+    - node
+
+# apps
+- action: package.install
+  provider: homebrew
+  list:
+    - obsidian
+    - slack
+    - discord
+    - macpass
+    - mactex
+    - gnuplot
+    - qrencode
+    - pandoc
+    - brave-browser
+
+# dev
+- action: package.install
+  provider: homebrew
+  list:
+    - terraform
+    - ansible
+    - jq
+    - yq
+    - pwgen
+    - pre-commit
+    - oci-cli
+    - awscli
+    - kubernetes-cli
+    - kustomize
+    - krew
+    - pinentry-mac
+    - helm
+    - gh
+    - k9s
+
+
+# Markdown Preview in nvim
+- action: command.run
+  dir: .
+  command: sh
+  args:
+    - -c
+    - npm install -g live-server
+  

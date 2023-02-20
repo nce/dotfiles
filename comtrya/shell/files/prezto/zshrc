@@ -1,0 +1,39 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/kubectl", from:oh-my-zsh
+zplug "nnao45/zsh-kubectl-completion"
+
+zplug load
+
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="fd --type f"
+export FZF_ALT_C_COMMAND="fd --type d"
+
+alias vim="nvim"
+alias vi="nvim"
+
+export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin"
+eval "$(zoxide init zsh)"
+
+source "$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
+KUBE_PS1_SYMBOL_ENABLE=false
+KUBE_PS1_NS_ENABLE=false
+PS1='$(kube_ps1) '$PS1
+
+# gs
+source <(opsctl completion zsh)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

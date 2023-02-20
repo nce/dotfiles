@@ -1,0 +1,10 @@
+actions:
+- action: file.copy
+  from: gitconfig
+  to: "{{ user.home_dir }}/.gitconfig"
+
+- action: file.copy
+  from: gitignore
+  to: "{{ user.home_dir }}/.gitignore"
+
+

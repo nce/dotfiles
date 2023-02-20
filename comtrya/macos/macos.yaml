@@ -1,0 +1,21 @@
+actions:
+# show hidden files
+- action: macos.default
+  domain: com.apple.finder
+  key: AppleShowAllFiles
+  kind: bool
+  value: "true"
+
+# autohide the dock
+- action: macos.default
+  domain: com.apple.dock
+  key: autohide
+  kind: bool
+  value: "true"
+
+# show file extensions
+- action: macos.default
+  domain: NSGlobalDomain
+  key: AppleShowAllExtensions
+  kind: bool
+  value: "true"

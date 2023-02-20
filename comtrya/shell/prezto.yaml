@@ -1,0 +1,49 @@
+actions:
+- action: command.run
+  command: git
+  dir: .
+  args:
+  - clone
+  - --recursive
+  - https://github.com/sorin-ionescu/prezto.git
+  - "{{ user.home_dir }}/.config/zsh/.zprezto"
+
+- action: command.run
+  dir: .
+  command: zsh
+  args:
+  - -c
+  - |
+    XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+    ZDOTDIR="${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}"
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -vs "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+
+- action: file.copy
+  from: prezto/zshenv
+  to: "{{ user.home_dir }}/.zshenv"
+
+- action: package.install
+  provider: homebrew
+  name: zplug
+
+- action: package.install
+  provider: homebrew
+  name: zoxide
+
+- action: package.install
+  provider: homebrew
+  name: kube-ps1
+
+- action: file.copy
+  from: prezto/zshrc
+  to: "{{ user.home_dir }}/.config/zsh/.zprezto/runcoms/zshrc"
+
+- action: file.copy
+  from: prezto/zpreztorc
+  to: "{{ user.home_dir }}/.config/zsh/.zprezto/runcoms/zpreztorc"
+
+
+
