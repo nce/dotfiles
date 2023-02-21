@@ -1,0 +1,12 @@
+actions:
+- action: git.clone
+  repository: https://github.com/lbschenkel/EurKEY-Mac
+  directory: "{{ user.home_dir}}/vcs/github/eurkey-mac"
+
+- action: file.copy
+  from: "{{ user.home_dir }}/vcs/github/eurkey-mac/EurKEY.icns"
+  to: "{{ user.home_dir }}/Library/Keyboard Layouts/EurKEY.icns"
+
+- action: file.copy
+  from: "{{ user.home_dir }}/vcs/github/eurkey-mac/EurKEY.keylayout"
+  to: "{{ user.home_dir }}/Library/Keyboard Layouts/EurKEY.keylayout"

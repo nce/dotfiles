@@ -24,6 +24,7 @@ export FZF_ALT_C_COMMAND="fd --type d"
 
 alias vim="nvim"
 alias vi="nvim"
+alias ls="exa"
 
 export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin"
 eval "$(zoxide init zsh)"

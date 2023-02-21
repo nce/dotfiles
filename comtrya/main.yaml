@@ -33,6 +33,7 @@ actions:
     - qrencode
     - pandoc
     - brave-browser
+    - tunnelblick
 
 # dev
 - action: package.install

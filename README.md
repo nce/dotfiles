@@ -18,10 +18,6 @@ Current Backup:
 ```bash
 sudo softwareupdate --install-rosetta
 ```
-
-3. install [eurkey](https://github.com/jonasdiemer/EurKEY-Mac)
-setup capslock as control
-
 6. apps
 ```bash
 brew tap homebrew/cask-drivers
@@ -33,8 +29,6 @@ brew install --cask garmin-express elgato-control-center elgato-stream-deck elga
 ```
 # Mac Setup
 /usr/local/opt/fzf/install # yes yes yes yes
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-
 k krew install oidc-login
 ```
 
