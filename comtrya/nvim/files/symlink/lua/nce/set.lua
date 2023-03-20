@@ -15,6 +15,9 @@ vim.opt.backup = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+-- both need to be set to ignore searchcase
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 
