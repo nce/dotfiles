@@ -19,6 +19,7 @@ actions:
     - git
     - node
     - exa
+    - fluxcd/tap/flux
 
 # apps
 - action: package.install
