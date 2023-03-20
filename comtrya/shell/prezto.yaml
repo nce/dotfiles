@@ -25,6 +25,12 @@ actions:
   from: prezto/zshenv
   to: "{{ user.home_dir }}/.zshenv"
 
+- action: command.run
+  command: mkdir
+  dir: .
+  args:
+    - bin
+
 - action: package.install
   provider: homebrew
   name: zplug
