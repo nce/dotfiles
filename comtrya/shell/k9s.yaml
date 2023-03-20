@@ -1,0 +1,5 @@
+actions:
+- action: file.copy
+  from: k9s/plugin.yml
+  to: "{{ user.home_dir }}/.config/k9s/plugin.yml"
+
