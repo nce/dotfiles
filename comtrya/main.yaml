@@ -19,7 +19,6 @@ actions:
     - git
     - node
     - exa
-    - fluxcd/tap/flux
 
 # apps
 - action: package.install
@@ -35,6 +34,7 @@ actions:
     - pandoc
     - brave-browser
     - tunnelblick
+    - meetingbar
 
 # dev
 - action: package.install
@@ -56,7 +56,9 @@ actions:
     - gh
     - k9s
     - danielfoehrkn/switch/switch
-
+    - fluxcd/tap/flux
+    - dive
+    - stern
 
 # Markdown Preview in nvim
 - action: command.run
