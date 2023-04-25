@@ -1,8 +1,34 @@
 # $HOME/.k9s/plugin.yml
+plugin:
+  stern:
+    shortCut: Ctrl-L
+    confirm: false
+    description: "Logs <Stern>"
+    scopes:
+      - pods
+    command: stern
+    background: false
+    args:
+      - --tail
+      - 50
+      - $FILTER
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+  dive:
+    shortCut: d
+    confirm: false
+    description: "Dive image"
+    scopes:
+      - containers
+    command: dive
+    background: false
+    args:
+      - $COL-IMAGE
 # move selected line to chosen resource in K9s, then:
 # Shift-T (with confirmation) to toggle helm releases or kustomizations suspend and resume
 # Shift-R (no confirmation) to reconcile a git source or a helm release or a kustomization
-plugin:
   toggle-helmrelease:
     shortCut: Shift-T
     confirm: true
