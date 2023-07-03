@@ -3,3 +3,8 @@ actions:
   from: k9s/plugin.yml
   to: "{{ user.home_dir }}/.config/k9s/plugin.yml"
 
+- action: file.copy
+  from: k9s/config.yml
+  to: "{{ user.home_dir }}/.config/k9s/config.yml"
+
+
