@@ -28,6 +28,9 @@ alias vim="nvim"
 alias vi="nvim"
 alias ls="exa"
 
+# kubernetes alias
+alias kgpnr='kubectl get pod -A|grep -v "Runni\|Compl"'
+
 export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin:${HOME}/bin"
 eval "$(zoxide init zsh)"
 
