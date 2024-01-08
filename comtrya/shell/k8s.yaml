@@ -1,0 +1,8 @@
+actions:
+- action: command.run
+  dir: .
+  command: kubectl 
+  args:
+  - krew
+  - install
+  - get-all
