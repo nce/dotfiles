@@ -19,6 +19,7 @@ actions:
     - git
     - node
     - exa
+    - krew
 
 # apps
 - action: package.install
