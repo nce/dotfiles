@@ -42,3 +42,5 @@ require('gitsigns').setup {
   },
 }
 
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {desc = "Enable git blame on line"})
+vim.keymap.set("n", "<leader>gv", ":Gitsigns preview_hunk<CR>", {desc = "Preview next git hunk"})
