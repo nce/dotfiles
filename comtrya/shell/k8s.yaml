@@ -1,8 +1,10 @@
+# https://github.com/robscott/kube-capacity
 actions:
 - action: command.run
   dir: .
-  command: kubectl 
+  command: kubectl
   args:
   - krew
   - install
   - get-all
+  - resource-capacity
