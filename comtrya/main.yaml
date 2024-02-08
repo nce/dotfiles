@@ -62,6 +62,7 @@ actions:
     - dive
     - stern
     - aws-vault
+    - git-delta
 
 # Markdown Preview in nvim
 - action: command.run
