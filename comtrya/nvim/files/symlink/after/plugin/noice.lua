@@ -17,4 +17,7 @@ require("noice").setup({
   },
 })
 
+-- Dismiss Noice Message
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+
 require("telescope").load_extension("noice")
