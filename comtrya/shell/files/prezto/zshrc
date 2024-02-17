@@ -27,6 +27,11 @@ export FZF_ALT_C_COMMAND="fd --type d"
 alias vim="nvim"
 alias vi="nvim"
 alias ls="exa"
+alias tree="exa --tree"
+
+if command -v bat > /dev/null; then
+  alias cat="bat"
+fi
 
 # kubernetes alias
 alias kgpnr='kubectl get pod -A|grep -v "Runni\|Compl"'
