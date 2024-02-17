@@ -17,14 +17,14 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    requires = { 
+    requires = {
       {'nvim-lua/plenary.nvim'}
     }
   }
 
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make' 
+    run = 'make'
   }
 
   use {
@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
       {'saadparwaiz1/cmp_luasnip'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/cmp-nvim-lua'},
+      {'github/copilot.vim'},
 
       -- Snippets
       {'L3MON4D3/LuaSnip'},
