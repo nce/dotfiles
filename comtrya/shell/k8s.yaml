@@ -1,3 +1,5 @@
+depends:
+- main
 # https://github.com/robscott/kube-capacity
 actions:
 - action: command.run
