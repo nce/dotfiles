@@ -1,9 +1,12 @@
+depends:
+- main
+
 actions:
 - action: command.run
   command: bash
   args:
     - -c
-    - | 
+    - |
       git clone git@github.com:giantswarm/opsctl.git "{{ user.home_dir }}/vcs/github/giantswarm/opsctl" &&
       cd "{{ user.home_dir }}/vcs/github/giantswarm/opsctl"
       make &&
@@ -11,6 +14,6 @@ actions:
 
 - action: command.run
   command: sh
-  args: 
+  args:
     - -c
     - kubectl krew install gs
