@@ -1,6 +1,4 @@
 actions:
-
-# fonts
 - action: package.install
   provider: homebrew
   repository: homebrew/cask-fonts
@@ -8,7 +6,6 @@ actions:
 
 # tools
 - action: package.install
-  provider: homebrew
   list:
     - tmux
     - neovim
@@ -18,7 +15,7 @@ actions:
     - fd
     - git
     - node
-    - exa
+    - eza
     - krew
 
 # apps
@@ -63,6 +60,7 @@ actions:
     - stern
     - aws-vault
     - git-delta
+    - go
 
 # Markdown Preview in nvim
 - action: command.run
@@ -71,4 +69,3 @@ actions:
   args:
     - -c
     - npm install -g live-server
-  

@@ -1,13 +1,38 @@
 # Dotfiles
 This is my clientsetup
 
-Setup with [comtrya](https://github.com/comtrya/comtrya):
+## clean restore
+
+1. Restore `.ssh/{config,gs,git,ed255}` keys from backup
+2. Install `comtrya`
 ```bash
+$ mkdir bin
 $ curl -fsSL https://get.comtrya.dev | sh
-$ comtrya apply
+$ mv comtrya-x86_64-apple-darwin bin/comtrya
+```
+3. Install `homebrew` 
+```bash
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+2. Pull `dotfiles` repo
+```bash
+$ mkdir -p vcs/github/nce/
+$ cd vcs/github/nce
+$ git clone https://github.com/nce/dotfiles.git
+# Install developer tools
+$ cd dotfiles/comtrya
+$ ~/bin/comtrya apply
+```
+5. Restore Tooling
+```
+// vim
+:PackerSync
+// Tmux Plugin Sync
+<C-a> I
 ```
 
-# Client Installation
+
+# Deprecated: Client Installation
 Current Backup:
 * `.ssh`
 * `.gnupg`
@@ -17,12 +42,6 @@ Current Backup:
 2. install rosetta
 ```bash
 sudo softwareupdate --install-rosetta
-```
-6. apps
-```bash
-brew tap homebrew/cask-drivers
-brew install --cask garmin-express elgato-control-center elgato-stream-deck elgato-camera-hub
-
 ```
 
 ## Apple M1
