@@ -1,0 +1,44 @@
+actions:
+  # clear the dock
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array
+  value: ""
+
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array-add
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Finder.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array-add
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Brave Browser.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array-add
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Slack.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array-add
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Obsidian.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array-add
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/kitty.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
+- action: macos.default
+  domain: com.apple.dock
+  key: persistent-apps
+  kind: array-add
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Discord.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+
