@@ -1,0 +1,14 @@
+actions:
+- action: package.install
+  provider: homebrew
+  name: kitty
+
+- action: file.copy
+  from: kitty.conf
+  to: "{{ user.home_dir }}/.config/kitty/kitty.conf"
+
+- action: file.copy
+  from: ayu-mirage.conf
+  to: "{{ user.home_dir }}/.config/kitty/current-theme.conf"
+
+
