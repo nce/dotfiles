@@ -26,8 +26,8 @@ export FZF_ALT_C_COMMAND="fd --type d"
 
 alias vim="nvim"
 alias vi="nvim"
-alias ls="exa"
-alias tree="exa --tree"
+alias ls="eza"
+alias tree="eza --tree"
 
 if command -v bat > /dev/null; then
   alias cat="bat"
