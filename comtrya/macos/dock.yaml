@@ -10,7 +10,7 @@ actions:
   domain: com.apple.dock
   key: persistent-apps
   kind: array-add
-  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Finder.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/System/Library/CoreServices/Finder.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
 
 - action: macos.default
   domain: com.apple.dock
@@ -46,7 +46,7 @@ actions:
   domain: com.apple.dock
   key: persistent-apps
   kind: array-add
-  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Music.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+  value: "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/System/Applications/Music.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
 
 # hot corners
 - action: macos.default
