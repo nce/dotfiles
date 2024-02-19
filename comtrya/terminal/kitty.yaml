@@ -3,6 +3,7 @@ actions:
   provider: homebrew
   name: kitty
 
+
 - action: file.copy
   from: kitty.conf
   to: "{{ user.home_dir }}/.config/kitty/kitty.conf"
