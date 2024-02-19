@@ -19,3 +19,10 @@ actions:
   key: AppleShowAllExtensions
   kind: bool
   value: "true"
+
+# disable natural scrolling
+- action: macos.default
+  domain: com.apple
+  key: swipescrolldirection
+  kind: bool
+  value: "false"
