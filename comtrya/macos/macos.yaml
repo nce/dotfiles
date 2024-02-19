@@ -1,3 +1,4 @@
+# https://macos-defaults.com
 actions:
 # show hidden files
 - action: macos.default
@@ -26,3 +27,22 @@ actions:
   key: swipescrolldirection
   kind: bool
   value: "false"
+
+# https://mac-key-repeat.zaymon.dev/
+- action: command.run
+  command: defaults
+  args:
+    - write
+    - -g
+    - InitialKeyRepeat
+    - -int
+    - "12"
+
+- action: command.run
+  command: defaults
+  args:
+    - write
+    - -g
+    - KeyRepeat
+    - -int
+    - "2"
