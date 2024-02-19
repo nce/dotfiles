@@ -90,21 +90,13 @@ return require('packer').startup(function(use)
   -- Handling
   use { 'alexghergh/nvim-tmux-navigation' }
   use { 'nanotee/zoxide.vim' }
-  use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+  use { "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
-      require("neo-tree").setup({
-        filesystem = {
-          filtered_items = {
-            visible = false, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
-            hide_dotfiles = false,
-            hide_gitignored = true
-          }
-        }
-      })
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
