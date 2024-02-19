@@ -12,7 +12,7 @@
 [core]
 # hooksPath = ~/.githooks using pre-commit instead
   autocrlf = input
-  excludesfile = /Users/ull/.gitignore
+  excludesfile = /Users/nce/.gitignore
   editor = vim
   ignorecase = false
   pager = delta
