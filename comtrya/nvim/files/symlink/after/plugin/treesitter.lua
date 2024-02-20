@@ -11,7 +11,9 @@ require'nvim-treesitter.configs'.setup {
     "latex",
     "jq",
     "html",
-    "gitcommit"
+    "gitcommit",
+    "bash",
+    "regex"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

@@ -61,6 +61,7 @@ actions:
     - aws-vault
     - git-delta
     - go
+    - golangci-lint
 
 # Markdown Preview in nvim
 - action: command.run

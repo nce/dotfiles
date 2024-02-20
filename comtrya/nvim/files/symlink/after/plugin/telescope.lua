@@ -49,3 +49,4 @@ require('telescope').setup{
 }
 
 require("telescope").load_extension "zoxide"
+require("telescope").load_extension("noice")
