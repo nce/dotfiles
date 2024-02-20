@@ -37,10 +37,6 @@ actions:
 
 - action: package.install
   provider: homebrew
-  name: zoxide
-
-- action: package.install
-  provider: homebrew
   name: kube-ps1
 
 - action: file.copy
@@ -54,3 +50,10 @@ actions:
 - action: git.clone
   repository: https://github.com/Aloxaf/fzf-tab
   directory: "{{ user.home_dir }}/.config/zsh/.zprezto/contrib/fzf-tab"
+
+# install zsh plugins
+- action: command.run
+  command: zsh
+  args:
+    - -c
+    - zplug install
