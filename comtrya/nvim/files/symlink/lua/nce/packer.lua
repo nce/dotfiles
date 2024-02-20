@@ -18,7 +18,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     requires = {
-      {'nvim-lua/plenary.nvim'}
+      {'nvim-lua/plenary.nvim'},
+      {'jvgrootveld/telescope-zoxide'}
     }
   }
 
@@ -92,7 +93,6 @@ return require('packer').startup(function(use)
 
   -- Handling
   use { 'alexghergh/nvim-tmux-navigation' }
-  use { 'nanotee/zoxide.vim' }
   use { "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     requires = {
