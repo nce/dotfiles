@@ -1,1 +1,2 @@
-require("nce")
+require("nce.core")
+require("nce.lazy")
