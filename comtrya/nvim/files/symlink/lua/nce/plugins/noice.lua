@@ -8,7 +8,11 @@ return {
   },
 
   config = function()
+    require("notify").setup({
+      background_colour = "#000000",
+    })
     require("noice").setup({
+      -- for full transparent background options
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {

@@ -54,14 +54,23 @@ actions:
     - helm
     - gh
     - k9s
-    - danielfoehrkn/switch/switch
-    - fluxcd/tap/flux
     - dive
     - stern
     - aws-vault
     - git-delta
     - go
     - golangci-lint
+    - keybase
+
+- action: package.install
+  provider: homebrew
+  repository: danielfoehrkn/switch
+  name: switch
+
+- action: package.install
+  provider: homebrew
+  repository: fluxcd/tap
+  name: flux
 
 # Markdown Preview in nvim
 - action: command.run
