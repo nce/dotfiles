@@ -10,6 +10,9 @@ return {
   config = function()
     require("notify").setup({
       background_colour = "#000000",
+      render = "compact",
+      level = 3,
+      timeout = 3000,
     })
     require("noice").setup({
       -- for full transparent background options
