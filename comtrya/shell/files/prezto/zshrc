@@ -34,6 +34,7 @@ if command -v bat > /dev/null; then
 fi
 
 # kubernetes alias
+alias kubectl="kubecolor"
 alias kgpnr='kubectl get pod -A|grep -v "Runni\|Compl"'
 
 export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin:${HOME}/bin"
