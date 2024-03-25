@@ -1,6 +1,11 @@
 depends:
 - main
 
+# tools
+- action: package.install
+  list:
+    - teleport
+
 actions:
 - action: command.run
   command: bash
