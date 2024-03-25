@@ -61,6 +61,7 @@ actions:
     - go
     - golangci-lint
     - keybase
+    - chart-testing
 
 - action: package.install
   provider: homebrew
