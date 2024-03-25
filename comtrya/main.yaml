@@ -4,6 +4,11 @@ actions:
   repository: homebrew/cask-fonts
   name: font-inconsolata-go-nerd-font
 
+- action: package.install
+  provider: homebrew
+  repository: kubecolor/tap
+  name: kubecolor
+
 # tools
 - action: package.install
   list:
