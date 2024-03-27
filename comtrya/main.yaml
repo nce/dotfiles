@@ -85,3 +85,11 @@ actions:
   args:
     - -c
     - npm install -g live-server
+
+# Go Installs
+- action: command.run
+  dir: .
+  command: sh
+  args:
+    - -c
+    - go install golang.org/x/tools/cmd/goimports@latest
