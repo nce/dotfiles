@@ -1,0 +1,13 @@
+actions:
+- action: package.install
+  provider: homebrew
+  repository: jandedobbeleer/oh-my-posh
+  name: oh-my-posh
+
+- action: file.copy
+  from: zensh/zshrc.zsh
+  to: "{{ user.home_dir }}/.config/zsh/.zshrc"
+
+- action: file.copy
+  from: zensh/ohmyposh
+  to: "{{ user.home_dir }}/.config/zsh/ohmyposh.toml"
