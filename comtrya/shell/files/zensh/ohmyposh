@@ -20,6 +20,14 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
       style = 'full'
 
   [[blocks.segments]]
+    type = "kubectl"
+    style = "plain"
+    powerline_symbol = ""
+    foreground = "yellow"
+    background = 'transparent'
+    template = " ⎈ {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
+
+  [[blocks.segments]]
     type = 'git'
     style = 'plain'
     foreground = 'p:grey'
