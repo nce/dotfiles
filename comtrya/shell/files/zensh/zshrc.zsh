@@ -81,6 +81,7 @@ export FZF_ALT_C_COMMAND="fd --type d"
 
 # kubernetes stuff
 alias kubectl="kubecolor"
+compdef kubecolor=kubectl
 alias kgpnr='kubectl get pod -A|grep -v "Runni\|Compl"'
 export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin:${HOME}/bin"
 
