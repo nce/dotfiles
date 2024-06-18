@@ -86,6 +86,7 @@ export PATH="${PATH}:${HOME}/.krew/bin/:$(go env GOPATH)/bin:${HOME}/bin"
 
 # gs
 source <(opsctl completion zsh)
+source ~/.zshenv
 # flux
 source <(flux completion zsh)
 
