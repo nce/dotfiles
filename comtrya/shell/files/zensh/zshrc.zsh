@@ -20,6 +20,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light babarot/enhancd
+export ENHANCD_FILTER="fzf --preview 'eza -al --tree --level 1 --group-directories-first --git-ignore --header --git --no-user --no-time --no-filesize --no-permissions {}' --preview-window right,50% --height 35% --reverse --ansi :fzy :peco"
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -28,6 +30,7 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::eza
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -69,7 +72,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias vim="nvim"
 alias vi="nvim"
-alias ls="eza"
+alias ..="cd .."
+alias ...="cd ../.."
 alias tree="eza --tree"
 if command -v bat > /dev/null; then
   alias cat="bat"
@@ -90,6 +94,12 @@ source <(opsctl completion zsh)
 source ~/.zshenv
 # flux
 source <(flux completion zsh)
+
+
+# autostart tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  tmux a -t default || exec tmux new -s default && exit;
+fi
 
 # Shell integrations
 eval "$(fzf --zsh)"

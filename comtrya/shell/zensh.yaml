@@ -6,7 +6,7 @@ actions:
 
 - action: file.copy
   from: zensh/zshrc.zsh
-  to: "{{ user.home_dir }}/.config/zsh/.zshrc"
+  to: "{{ user.home_dir }}/.zshrc"
 
 - action: file.copy
   from: zensh/ohmyposh

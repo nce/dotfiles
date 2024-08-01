@@ -7,6 +7,8 @@ This is my clientsetup
 
 1. Restore `.gnupg` from backup
 
+1. Restore `.oci` from backup
+
 1. Install `comtrya`    
     ```bash
     $ mkdir bin
