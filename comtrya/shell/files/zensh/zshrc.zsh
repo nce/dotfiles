@@ -75,6 +75,7 @@ alias vi="nvim"
 alias ..="cd .."
 alias ...="cd ../.."
 alias tree="eza --tree"
+alias eza="eza --icons always"
 if command -v bat > /dev/null; then
   alias cat="bat"
 fi
