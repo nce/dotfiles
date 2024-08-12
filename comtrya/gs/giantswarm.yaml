@@ -5,7 +5,7 @@ actions:
 # tools
 - action: package.install
   list:
-    - teleport
+    - tsh
 
 - action: command.run
   command: bash
