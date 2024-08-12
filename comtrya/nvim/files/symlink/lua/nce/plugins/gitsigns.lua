@@ -43,9 +43,9 @@ return {
         row = 0,
         col = 1
       },
-      yadm = {
-        enable = false
-      }
+      --yadm = {
+      --  enable = false
+      --}
     })
 
     vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {desc = "Enable git blame on line"})
