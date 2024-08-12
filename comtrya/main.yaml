@@ -21,7 +21,6 @@ actions:
     - git
     - node
     - eza
-    - krew
 
 # apps
 - action: package.install
@@ -65,8 +64,15 @@ actions:
     - git-delta
     - go
     - golangci-lint
+    - go-critic
     - keybase
     - chart-testing
+
+- action: command.run
+  command: sh
+  args:
+    - -c
+    - kubectl krew install tree
 
 - action: package.install
   provider: homebrew
