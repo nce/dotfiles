@@ -76,6 +76,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias tree="eza --tree"
 alias eza="eza --icons always"
+alias l='eza -l --icons --git -a'
+alias lt='eza --tree --level 2 --long --icons --git'
 if command -v bat > /dev/null; then
   alias cat="bat"
 fi
